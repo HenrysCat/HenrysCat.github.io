@@ -1,0 +1,24 @@
+{
+  "name": "ESP32 CO2 Dashboard",
+  "version": "latest",
+  "new_install_prompt_erase": true,
+  "builds": [
+    {
+      "chipFamily": "ESP32",
+      "parts": [
+        {
+          "path": "https://github.com/HenrysCat/ESP32-CO2-Dashboard/releases/latest/download/bootloader.bin",
+          "offset": 4096
+        },
+        {
+          "path": "https://github.com/HenrysCat/ESP32-CO2-Dashboard/releases/latest/download/partitions.bin",
+          "offset": 32768
+        },
+        {
+          "path": "https://github.com/HenrysCat/ESP32-CO2-Dashboard/releases/latest/download/firmware.bin",
+          "offset": 65536
+        }
+      ]
+    }
+  ]
+}
