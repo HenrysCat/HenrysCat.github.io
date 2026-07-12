@@ -6,15 +6,15 @@
       "chipFamily": "ESP32",
       "parts": [
         {
-          "path": "https://github.com/HenrysCat/esp32-cyd-ham-dashboard/releases/latest/download/bootloader.bin",
+          "path": "firmware/bootloader.bin",
           "offset": 4096
         },
         {
-          "path": "https://github.com/HenrysCat/esp32-cyd-ham-dashboard/releases/latest/download/partitions.bin",
+          "path": "firmware/partitions.bin",
           "offset": 32768
         },
         {
-          "path": "https://github.com/HenrysCat/esp32-cyd-ham-dashboard/releases/latest/download/firmware.bin",
+          "path": "firmware/firmware.bin",
           "offset": 65536
         }
       ]
