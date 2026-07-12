@@ -2,18 +2,35 @@
 <html>
 <head>
 <title>ESP32 CO2 Dashboard Flasher</title>
+<link rel="stylesheet" href="../style.css">
 </head>
 
 <body>
 
+<div class="container">
+
 <h1>ESP32 CO2 Dashboard</h1>
 
 <p>
-Install the latest firmware directly to your ESP32.
+Install the latest firmware onto your ESP32.
+</p>
+
+<div class="card">
+
+<p>
+Connect your ESP32 via USB, then click install.
 </p>
 
 <esp-web-install-button manifest="manifest.json">
 </esp-web-install-button>
+
+</div>
+
+<footer>
+ESP32 CO2 Dashboard
+</footer>
+
+</div>
 
 <script type="module"
 src="https://unpkg.com/esp-web-tools@10/dist/web/install-button.js?module">
