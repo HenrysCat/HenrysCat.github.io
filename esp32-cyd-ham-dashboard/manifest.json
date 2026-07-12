@@ -1,7 +1,6 @@
 {
   "name": "ESP32 CYD Ham Dashboard",
   "version": "latest",
-  "new_install_prompt_erase": true,
   "builds": [
     {
       "chipFamily": "ESP32",
