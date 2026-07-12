@@ -1,0 +1,24 @@
+{
+  "name": "ESP32 CYD Ham Dashboard",
+  "version": "latest",
+  "new_install_prompt_erase": true,
+  "builds": [
+    {
+      "chipFamily": "ESP32",
+      "parts": [
+        {
+          "path": "https://github.com/HenrysCat/esp32-cyd-ham-dashboard/releases/latest/download/bootloader.bin",
+          "offset": 4096
+        },
+        {
+          "path": "https://github.com/HenrysCat/esp32-cyd-ham-dashboard/releases/latest/download/partitions.bin",
+          "offset": 32768
+        },
+        {
+          "path": "https://github.com/HenrysCat/esp32-cyd-ham-dashboard/releases/latest/download/firmware.bin",
+          "offset": 65536
+        }
+      ]
+    }
+  ]
+}
