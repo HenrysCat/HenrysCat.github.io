@@ -2,18 +2,35 @@
 <html>
 <head>
 <title>ESP32 CYD Ham Dashboard Flasher</title>
+<link rel="stylesheet" href="../style.css">
 </head>
 
 <body>
 
+<div class="container">
+
 <h1>ESP32 CYD Ham Dashboard</h1>
 
 <p>
-Install the latest firmware directly to your ESP32.
+Install the latest firmware onto your CYD ESP32 display.
+</p>
+
+<div class="card">
+
+<p>
+Connect USB, select the device, and flash.
 </p>
 
 <esp-web-install-button manifest="manifest.json">
 </esp-web-install-button>
+
+</div>
+
+<footer>
+ESP32 CYD Ham Dashboard
+</footer>
+
+</div>
 
 <script type="module"
 src="https://unpkg.com/esp-web-tools@10/dist/web/install-button.js?module">
