@@ -37,6 +37,49 @@ p {
     border-radius: 8px;
 }
 
+.driver-options {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 20px 0;
+    text-align: left;
+}
+
+.driver-option {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: 10px;
+    align-items: baseline;
+    padding: 12px 14px;
+    background: white;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: border-color 0.15s ease;
+}
+
+.driver-option:has(input:checked) {
+    border-color: #1565c0;
+}
+
+.driver-option input[type="radio"] {
+    grid-row: 1;
+    margin: 0;
+}
+
+.driver-title {
+    grid-row: 1;
+    font-weight: bold;
+}
+
+.driver-desc {
+    grid-row: 2;
+    grid-column: 2;
+    font-size: 0.85em;
+    color: #555;
+    line-height: 1.4;
+}
+
 footer {
     margin-top: 30px;
     font-size: 0.85em;

@@ -17,11 +17,33 @@ Install the latest firmware onto your CYD ESP32 display.
 
 <div class="card">
 
-<p>
-Connect USB, select the device, and flash.
-</p>
+<p>Select the display driver that matches your board, then connect USB and flash.</p>
 
-<esp-web-install-button manifest="manifest.json">
+<div class="driver-options">
+
+<label class="driver-option">
+<input type="radio" name="driver" value="ili9341" checked>
+<span class="driver-title">ILI9341 (default)</span>
+<span class="driver-desc">
+Most Sunton "Cheap Yellow Display" (CYD) boards, including the common
+ESP32-2432S028R, use the ILI9341 controller. Start here unless you know
+your board uses a different panel.
+</span>
+</label>
+
+<label class="driver-option">
+<input type="radio" name="driver" value="st7789">
+<span class="driver-title">ST7789</span>
+<span class="driver-desc">
+Some CYD board revisions and other small ESP32 display modules ship with
+an ST7789 panel instead. If the ILI9341 build flashes but the screen stays
+blank, shows garbled colours, or is mirrored/inverted, try this option.
+</span>
+</label>
+
+</div>
+
+<esp-web-install-button manifest="manifest-ili9341.json">
 </esp-web-install-button>
 
 </div>
@@ -34,6 +56,21 @@ ESP32 CYD Ham Dashboard
 
 <script type="module"
 src="https://unpkg.com/esp-web-tools@10/dist/web/install-button.js?module">
+</script>
+
+<script>
+const manifests = {
+  ili9341: "manifest-ili9341.json",
+  st7789: "manifest-st7789.json",
+};
+
+const installButton = document.querySelector("esp-web-install-button");
+
+document.querySelectorAll('input[name="driver"]').forEach((radio) => {
+  radio.addEventListener("change", (event) => {
+    installButton.setAttribute("manifest", manifests[event.target.value]);
+  });
+});
 </script>
 
 </body>
