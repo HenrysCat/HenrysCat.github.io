@@ -1,20 +1,20 @@
 {
-  "name": "ESP32 CYD Ham Dashboard",
+  "name": "ESP32 CYD Ham Dashboard (ST7789)",
   "version": "latest",
   "builds": [
     {
       "chipFamily": "ESP32",
       "parts": [
         {
-          "path": "firmware/bootloader.bin",
+          "path": "firmware/st7789/bootloader.bin",
           "offset": 4096
         },
         {
-          "path": "firmware/partitions.bin",
+          "path": "firmware/st7789/partitions.bin",
           "offset": 32768
         },
         {
-          "path": "firmware/firmware.bin",
+          "path": "firmware/st7789/firmware.bin",
           "offset": 65536
         }
       ]

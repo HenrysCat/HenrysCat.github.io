@@ -1,0 +1,23 @@
+{
+  "name": "ESP32 CYD Ham Dashboard (ILI9341)",
+  "version": "latest",
+  "builds": [
+    {
+      "chipFamily": "ESP32",
+      "parts": [
+        {
+          "path": "firmware/ili9341/bootloader.bin",
+          "offset": 4096
+        },
+        {
+          "path": "firmware/ili9341/partitions.bin",
+          "offset": 32768
+        },
+        {
+          "path": "firmware/ili9341/firmware.bin",
+          "offset": 65536
+        }
+      ]
+    }
+  ]
+}
