@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CYD Diagnostic Tool Flasher</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>CYD Hardware Diagnostic Tool</h1>
+
+<p>
+Install the hardware diagnostic and configuration utility onto your ESP32 CYD board.
+</p>
+
+<div class="card">
+
+<p>
+Connect USB, select the device, and flash. The display driver (ILI9341/ST7789),
+rotation, colour order and inversion are all switchable at runtime from the
+on-device menu, so this one build covers ESP32-2432S028R/C, JC2432W328 and
+most Sunton/Guition CYD clones.
+</p>
+
+<esp-web-install-button manifest="manifest.json">
+</esp-web-install-button>
+
+</div>
+
+<footer>
+CYD Hardware Diagnostic Tool
+</footer>
+
+</div>
+
+<script type="module"
+src="https://unpkg.com/esp-web-tools@10/dist/web/install-button.js?module">
+</script>
+
+</body>
+</html>
