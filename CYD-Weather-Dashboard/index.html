@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CYD Weather Dashboard Flasher</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>CYD Weather Dashboard</h1>
+
+<p>
+Install the latest firmware onto your ESP32.
+</p>
+
+<div class="card">
+
+<p>
+Connect your ESP32 via USB, then click install.
+</p>
+
+<esp-web-install-button manifest="manifest.json">
+</esp-web-install-button>
+
+</div>
+
+<footer>
+CYD Weather Dashboard
+</footer>
+
+</div>
+
+<script type="module"
+src="https://unpkg.com/esp-web-tools@10/dist/web/install-button.js?module">
+</script>
+
+</body>
+</html>
