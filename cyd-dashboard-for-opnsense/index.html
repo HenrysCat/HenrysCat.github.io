@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>ESP32 CYD OPNsense Dashboard Flasher</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>ESP32 CYD OPNsense Dashboard</h1>
+
+<p>
+Install the latest firmware onto your ESP32.
+</p>
+
+<div class="card">
+
+<p>
+Connect your ESP32 via USB, then click install.
+</p>
+
+<esp-web-install-button manifest="manifest.json">
+</esp-web-install-button>
+
+<p class="erase-note">
+The installer asks whether to erase the device first. Leave <strong>Erase
+device</strong> unticked to keep your saved Wi-Fi settings when upgrading.
+Tick it for a first-time install, or to start again from a clean slate.
+</p>
+
+</div>
+
+<p>
+The display reads from a small middleware container that talks to your firewall's
+API, so <strong>set that up first</strong> &mdash; the dashboard has nothing to show
+without it. Wi-Fi details and the middleware address are entered on the device itself
+after flashing, so nothing is baked into the firmware.
+</p>
+
+<footer>
+ESP32 CYD OPNsense Dashboard
+</footer>
+
+</div>
+
+<script type="module"
+src="https://unpkg.com/esp-web-tools@10/dist/web/install-button.js?module">
+</script>
+
+</body>
+</html>
