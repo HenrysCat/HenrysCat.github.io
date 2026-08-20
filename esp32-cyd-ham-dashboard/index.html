@@ -17,7 +17,9 @@ Install the latest firmware onto your CYD ESP32 display.
 
 <div class="card">
 
-<p>Select the display driver that matches your board, then connect USB and flash.</p>
+<p>Select the board that matches yours, then connect USB and flash. The display
+driver is built into each firmware, so the wrong choice will flash successfully
+but leave the screen blank or garbled.</p>
 
 <div class="driver-options">
 
@@ -38,6 +40,17 @@ your board uses a different panel.
 Some CYD board revisions and other small ESP32 display modules ship with
 an ST7789 panel instead. If the ILI9341 build flashes but the screen stays
 blank, shows garbled colours, or is mirrored/inverted, try this option.
+</span>
+</label>
+
+<label class="driver-option">
+<input type="radio" name="driver" value="st7796">
+<span class="driver-title">ST7796S &mdash; 4.0" board</span>
+<span class="driver-desc">
+For the larger 4.0" CYD with a 480x320 ST7796S panel, rather than a 320x240
+2.8" board. This build lays the pages out for the bigger screen: larger text
+on the propagation, VHF and map pages, and twelve DX/POTA spots instead of
+eight. Pick one of the options above if your display is the 2.8" size.
 </span>
 </label>
 
@@ -69,6 +82,7 @@ src="https://unpkg.com/esp-web-tools@10/dist/web/install-button.js?module">
 const manifests = {
   ili9341: "manifest-ili9341.json",
   st7789: "manifest-st7789.json",
+  st7796: "manifest-st7796.json",
 };
 
 const installButton = document.querySelector("esp-web-install-button");
