@@ -1,0 +1,16 @@
+{
+  "name": "NerdMiner Modded v1.0.0 (update)",
+  "version": "1.0.0",
+  "new_install_prompt_erase": false,
+  "builds": [
+    {
+      "chipFamily": "ESP32",
+      "parts": [
+        {
+          "path": "firmware/firmware.bin",
+          "offset": 65536
+        }
+      ]
+    }
+  ]
+}

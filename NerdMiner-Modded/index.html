@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>NerdMiner Modded Flasher</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>NerdMiner Modded</h1>
+
+<p>
+Install NerdMiner Modded <strong>v1.0.0</strong> onto your ESP32-2432S028R (CYD).
+</p>
+
+<p class="erase-note">
+<strong>Tested on the CYD only.</strong> This firmware is built for the
+ESP32-2432S028R (2.8" Cheap Yellow Display) and has not been tested on any
+other board.
+</p>
+
+<div class="card">
+
+<h2>Full install (factory)</h2>
+
+<p>
+Writes the complete image to the board: bootloader, partition table and
+firmware. Use this the first time you flash a CYD, when coming from a
+different firmware, or to start again from a clean slate.
+</p>
+
+<p class="erase-note">
+The installer asks whether to erase the device first. Tick <strong>Erase
+device</strong> for a completely clean start, which clears your Wi-Fi, pool
+and wallet settings so you will need to set them up again.
+</p>
+
+<esp-web-install-button manifest="manifest.json">
+</esp-web-install-button>
+
+</div>
+
+<div class="card">
+
+<h2>Update firmware only</h2>
+
+<p>
+Writes just the application firmware and leaves the bootloader, partition
+table and your saved settings alone. Use this to upgrade a CYD that is already
+running NerdMiner Modded.
+</p>
+
+<p class="erase-note">
+Don't use this on a board that has never had NerdMiner Modded (or another
+NerdMiner build with the same partition layout) on it. Do a full install
+first.
+</p>
+
+<esp-web-install-button manifest="manifest-update.json">
+</esp-web-install-button>
+
+</div>
+
+<p class="erase-note">
+Connect your CYD via USB first. The installer needs a browser with Web Serial
+support, such as Chrome, Edge or Brave. After flashing, connect to the
+<strong>NerdMinerAP</strong> Wi-Fi network to enter your Wi-Fi details and BTC
+address.
+</p>
+
+<p>
+<a href="https://github.com/HenrysCat/NerdMiner-Modded">GitHub</a>
+</p>
+
+<footer>
+NerdMiner Modded, a fork of
+<a href="https://github.com/BitMaker-hub/NerdMiner_v2">NerdMiner_v2</a>
+</footer>
+
+</div>
+
+<script type="module"
+src="https://unpkg.com/esp-web-tools@10/dist/web/install-button.js?module">
+</script>
+
+</body>
+</html>
