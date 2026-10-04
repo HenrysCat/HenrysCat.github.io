@@ -1,13 +1,13 @@
 {
-  "name": "NerdMiner Modded v1.1.1 (full install)",
-  "version": "1.1.1",
+  "name": "NerdMiner Modded v1.2.0, 4.0\" CYD (full install)",
+  "version": "1.2.0",
   "new_install_prompt_erase": true,
   "builds": [
     {
       "chipFamily": "ESP32",
       "parts": [
         {
-          "path": "firmware/factory.bin",
+          "path": "firmware/cyd40/factory.bin",
           "offset": 0
         }
       ]

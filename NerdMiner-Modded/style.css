@@ -50,3 +50,43 @@ footer {
     line-height: 1.4;
     text-align: left;
 }
+
+.boards {
+    display: flex;
+    gap: 12px;
+}
+
+.board {
+    flex: 1;
+    cursor: pointer;
+}
+
+.board input {
+    position: absolute;
+    opacity: 0;
+}
+
+.board span {
+    display: block;
+    padding: 14px 10px;
+    border: 2px solid #cfd8dc;
+    border-radius: 8px;
+    background: white;
+    font-size: 0.9em;
+    line-height: 1.4;
+}
+
+.board span strong {
+    display: block;
+    font-size: 1.25em;
+}
+
+.board input:checked + span {
+    border-color: #1565c0;
+    background: #e3f2fd;
+}
+
+.board input:focus-visible + span {
+    outline: 2px solid #1565c0;
+    outline-offset: 2px;
+}

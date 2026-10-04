@@ -12,23 +12,56 @@
 <h1>NerdMiner Modded</h1>
 
 <p>
-Install NerdMiner Modded <strong>v1.1.1</strong> onto your ESP32-2432S028R (CYD).
+Install NerdMiner Modded <strong>v1.2.0</strong> onto your CYD (Cheap Yellow
+Display).
 </p>
 
 <p class="erase-note">
-<strong>Tested on the CYD only.</strong> This firmware is built for the
-ESP32-2432S028R (2.8" Cheap Yellow Display) and has not been tested on any
-other board.
+<strong>Tested on the CYD only.</strong> This firmware is built for the two
+boards below and has not been tested on any other board.
 </p>
+
+<div class="card">
+
+<h2>Choose your board</h2>
+
+<div class="boards">
+
+<label class="board">
+<input type="radio" name="board" value="cyd28" checked>
+<span>
+<strong>2.8" CYD</strong>
+ESP32-2432S028R, 320x240 screen
+</span>
+</label>
+
+<label class="board">
+<input type="radio" name="board" value="cyd40">
+<span>
+<strong>4.0" CYD</strong>
+320x480 ST7796 screen
+</span>
+</label>
+
+</div>
+
+<p class="erase-note">
+Both boards use the same chip, so the installer cannot tell them apart: the
+wrong choice flashes fine but leaves the screen blank or scrambled. If that
+happens, pick the other board and do a full install again.
+</p>
+
+</div>
 
 <div class="card">
 
 <h2>Full install (factory)</h2>
 
 <p>
-Writes the complete image to the board: bootloader, partition table and
-firmware. Use this the first time you flash a CYD, when coming from a
-different firmware, or to start again from a clean slate.
+Writes the complete image for the <strong class="board-name">2.8" CYD</strong>:
+bootloader, partition table and firmware. Use this the first time you flash a
+CYD, when coming from a different firmware, or to start again from a clean
+slate.
 </p>
 
 <p class="erase-note">
@@ -37,7 +70,7 @@ device</strong> for a completely clean start, which clears your Wi-Fi, pool
 and wallet settings so you will need to set them up again.
 </p>
 
-<esp-web-install-button manifest="manifest.json">
+<esp-web-install-button id="install-full" manifest="manifest-cyd28.json">
 </esp-web-install-button>
 
 </div>
@@ -47,9 +80,10 @@ and wallet settings so you will need to set them up again.
 <h2>Update firmware only</h2>
 
 <p>
-Writes just the application firmware and leaves the bootloader, partition
-table and your saved settings alone. Use this to upgrade a CYD that is already
-running NerdMiner Modded.
+Writes just the application firmware for the
+<strong class="board-name">2.8" CYD</strong> and leaves the bootloader,
+partition table and your saved settings alone. Use this to upgrade a CYD that
+is already running NerdMiner Modded.
 </p>
 
 <p class="erase-note">
@@ -58,7 +92,7 @@ NerdMiner build with the same partition layout) on it. Do a full install
 first.
 </p>
 
-<esp-web-install-button manifest="manifest-update.json">
+<esp-web-install-button id="install-update" manifest="manifest-cyd28-update.json">
 </esp-web-install-button>
 
 </div>
@@ -83,6 +117,31 @@ NerdMiner Modded, a fork of
 
 <script type="module"
 src="https://unpkg.com/esp-web-tools@10/dist/web/install-button.js?module">
+</script>
+
+<script>
+// The install buttons read their manifest when clicked, so switching board
+// only has to point them at that board's manifests.
+var BOARD_NAMES = { cyd28: '2.8" CYD', cyd40: '4.0" CYD' };
+
+function selectBoard(board) {
+  document.getElementById("install-full").setAttribute("manifest", "manifest-" + board + ".json");
+  document.getElementById("install-update").setAttribute("manifest", "manifest-" + board + "-update.json");
+  var names = document.querySelectorAll(".board-name");
+  for (var i = 0; i < names.length; i++) {
+    names[i].textContent = BOARD_NAMES[board];
+  }
+}
+
+var radios = document.querySelectorAll("input[name=board]");
+for (var i = 0; i < radios.length; i++) {
+  radios[i].addEventListener("change", function () {
+    selectBoard(this.value);
+  });
+  if (radios[i].checked) {
+    selectBoard(radios[i].value); // the browser may restore the last choice on reload
+  }
+}
 </script>
 
 </body>
