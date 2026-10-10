@@ -12,13 +12,13 @@
 <h1>NerdMiner Modded</h1>
 
 <p>
-Install NerdMiner Modded <strong>v1.2.1</strong> onto your CYD (Cheap Yellow
-Display).
+Install NerdMiner Modded <strong>v1.3.0</strong> onto your CYD (Cheap Yellow
+Display) or a bare ESP32-WROOM-32 board.
 </p>
 
 <p class="erase-note">
-<strong>Tested on the CYD only.</strong> This firmware is built for the two
-boards below and has not been tested on any other board.
+<strong>Tested on these boards only.</strong> This firmware is built for the
+three boards below and has not been tested on any other board.
 </p>
 
 <div class="card">
@@ -43,12 +43,20 @@ ESP32-2432S028R, 320x240 screen
 </span>
 </label>
 
+<label class="board">
+<input type="radio" name="board" value="wroom">
+<span>
+<strong>No screen</strong>
+ESP32-WROOM-32 dev board
+</span>
+</label>
+
 </div>
 
 <p class="erase-note">
-Both boards use the same chip, so the installer cannot tell them apart: the
-wrong choice flashes fine but leaves the screen blank or scrambled. If that
-happens, pick the other board and do a full install again.
+All three boards use the same chip, so the installer cannot tell them apart:
+the wrong choice flashes fine but leaves a CYD's screen blank or scrambled. If
+that happens, pick the right board and do a full install again.
 </p>
 
 </div>
@@ -60,7 +68,7 @@ happens, pick the other board and do a full install again.
 <p>
 Writes the complete image for the <strong class="board-name">2.8" CYD</strong>:
 bootloader, partition table and firmware. Use this the first time you flash a
-CYD, when coming from a different firmware, or to start again from a clean
+board, when coming from a different firmware, or to start again from a clean
 slate.
 </p>
 
@@ -82,8 +90,8 @@ and wallet settings so you will need to set them up again.
 <p>
 Writes just the application firmware for the
 <strong class="board-name">2.8" CYD</strong> and leaves the bootloader,
-partition table and your saved settings alone. Use this to upgrade a CYD that
-is already running NerdMiner Modded.
+partition table and your saved settings alone. Use this to upgrade a board
+that is already running NerdMiner Modded.
 </p>
 
 <p class="erase-note">
@@ -98,7 +106,7 @@ first.
 </div>
 
 <p class="erase-note">
-Connect your CYD via USB first. The installer needs a browser with Web Serial
+Connect your board via USB first. The installer needs a browser with Web Serial
 support, such as Chrome, Edge or Brave. After flashing, connect to the
 <strong>NerdMinerAP</strong> Wi-Fi network to enter your Wi-Fi details and BTC
 address.
@@ -122,7 +130,7 @@ src="https://unpkg.com/esp-web-tools@10/dist/web/install-button.js?module">
 <script>
 // The install buttons read their manifest when clicked, so switching board
 // only has to point them at that board's manifests.
-var BOARD_NAMES = { cyd28: '2.8" CYD', cyd40: '4.0" CYD' };
+var BOARD_NAMES = { cyd28: '2.8" CYD', cyd40: '4.0" CYD', wroom: 'ESP32-WROOM-32 without a screen' };
 
 function selectBoard(board) {
   document.getElementById("install-full").setAttribute("manifest", "manifest-" + board + ".json");

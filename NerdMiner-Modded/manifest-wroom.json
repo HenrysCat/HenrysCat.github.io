@@ -1,5 +1,5 @@
 {
-  "name": "NerdMiner Modded v1.3.0, 2.8\" CYD (full install)",
+  "name": "NerdMiner Modded v1.3.0, ESP32-WROOM-32, no screen (full install)",
   "version": "1.3.0",
   "new_install_prompt_erase": true,
   "builds": [
@@ -7,7 +7,7 @@
       "chipFamily": "ESP32",
       "parts": [
         {
-          "path": "firmware/cyd28/factory.bin",
+          "path": "firmware/wroom/factory.bin",
           "offset": 0
         }
       ]

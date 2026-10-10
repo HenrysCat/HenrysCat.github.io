@@ -53,11 +53,12 @@ footer {
 
 .boards {
     display: flex;
+    flex-wrap: wrap;
     gap: 12px;
 }
 
 .board {
-    flex: 1;
+    flex: 1 1 130px;
     cursor: pointer;
 }
 
