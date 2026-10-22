@@ -13,12 +13,12 @@
 
 <p>
 Install NerdMiner Modded <strong>v1.5.1</strong> onto your CYD (Cheap Yellow
-Display) or a bare ESP32-WROOM-32 board.
+Display), an M5StickC Plus2 or a bare ESP32-WROOM-32 board.
 </p>
 
 <p class="erase-note">
 <strong>Tested on these boards only.</strong> This firmware is built for the
-three boards below and has not been tested on any other board.
+boards below and has not been tested on any other board.
 </p>
 
 <div class="card">
@@ -44,6 +44,14 @@ ESP32-2432S028R, 320x240 screen
 </label>
 
 <label class="board">
+<input type="radio" name="board" value="m5plus2">
+<span>
+<strong>M5StickC Plus2</strong>
+ESP32-PICO-V3-02, 135x240 screen
+</span>
+</label>
+
+<label class="board">
 <input type="radio" name="board" value="wroom">
 <span>
 <strong>No screen</strong>
@@ -54,9 +62,9 @@ ESP32-WROOM-32 dev board
 </div>
 
 <p class="erase-note">
-All three boards use the same chip, so the installer cannot tell them apart:
-the wrong choice flashes fine but leaves a CYD's screen blank or scrambled. If
-that happens, pick the right board and do a full install again.
+All these boards use the same chip family, so the installer cannot tell them
+apart: the wrong choice flashes fine but leaves the screen blank or scrambled.
+If that happens, pick the right board and do a full install again.
 </p>
 
 </div>
@@ -137,7 +145,7 @@ src="https://unpkg.com/esp-web-tools@10/dist/web/install-button.js?module">
 <script>
 // The install buttons read their manifest when clicked, so switching board
 // only has to point them at that board's manifests.
-var BOARD_NAMES = { cyd28: '2.8" CYD', cyd40: '4.0" CYD', wroom: 'ESP32-WROOM-32 without a screen' };
+var BOARD_NAMES = { cyd28: '2.8" CYD', cyd40: '4.0" CYD', m5plus2: 'M5StickC Plus2', wroom: 'ESP32-WROOM-32 without a screen' };
 
 function selectBoard(board) {
   document.getElementById("install-full").setAttribute("manifest", "manifest-" + board + ".json");
