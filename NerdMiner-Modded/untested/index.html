@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>NerdMiner Modded Flasher - untested boards</title>
+<link rel="stylesheet" href="../style.css">
+<style>
+.warning {
+    margin: 18px 0 0;
+    padding: 14px 16px;
+    border: 2px solid #c62828;
+    border-radius: 8px;
+    background: #ffebee;
+    color: #b71c1c;
+    font-size: 0.95em;
+    line-height: 1.45;
+    text-align: left;
+}
+select {
+    width: 100%;
+    padding: 10px;
+    font-size: 1em;
+    border: 2px solid #cfd8dc;
+    border-radius: 8px;
+    background: white;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>NerdMiner Modded</h1>
+
+<p>
+Firmware for <strong>other boards</strong>, built from the same NerdMiner
+Modded <strong>v<span class="version">1.6.0</span></strong> code as the tested
+builds.
+</p>
+
+<div class="warning">
+<strong>Not tested on hardware.</strong> These builds compile, but nobody has
+run them on a real board for this release. They may not work, or may leave the
+screen blank. A full install replaces whatever is on the board. Use them at
+your own risk, and please
+<a href="https://github.com/HenrysCat/NerdMiner-Modded/issues">report what you
+find</a>, good or bad.
+</div>
+
+<p class="erase-note">
+For the 2.8" CYD (one USB port or two), the 4.0" CYD, the LilyGO T-Display
+1.14", the ES3C35P (ESP32-S3, 3.5" 320x480) and the screenless ESP32-WROOM-32,
+use the <a href="../">tested builds</a> instead.
+</p>
+
+<div class="card">
+
+<h2>Choose your board</h2>
+
+<select id="board" aria-label="Board"></select>
+
+<p class="erase-note">
+Many boards share a chip, so the installer cannot tell them apart: the wrong
+choice can flash fine but leave the screen blank or scrambled. If that
+happens, pick the right board and do a full install again.
+</p>
+
+</div>
+
+<div class="card">
+
+<h2>Full install (factory)</h2>
+
+<p>
+Writes the complete image for the <strong class="board-name"></strong>:
+bootloader, partition table and firmware. Use this the first time you flash a
+board, when coming from a different firmware, or to start again from a clean
+slate.
+</p>
+
+<p class="erase-note">
+The installer asks whether to erase the device first. Tick <strong>Erase
+device</strong> for a completely clean start, which clears your Wi-Fi, pool
+and wallet settings so you will need to set them up again.
+</p>
+
+<esp-web-install-button id="install-full">
+</esp-web-install-button>
+
+</div>
+
+<div class="card">
+
+<h2>Update firmware only</h2>
+
+<p>
+Writes just the application firmware for the
+<strong class="board-name"></strong> and leaves the bootloader, partition
+table and your saved settings alone. Use this to upgrade a board that is
+already running NerdMiner Modded.
+</p>
+
+<p class="erase-note">
+Don't use this on a board that has never had NerdMiner Modded (or another
+NerdMiner build with the same partition layout) on it. Do a full install
+first.
+</p>
+
+<p class="erase-note">
+The installer asks whether to erase the device first. Leave <strong>Erase
+device</strong> <strong>unticked</strong> here: erasing also removes the
+bootloader and your settings, and the board will not start again until you do
+a full install.
+</p>
+
+<esp-web-install-button id="install-update">
+</esp-web-install-button>
+
+</div>
+
+<p class="erase-note">
+Connect your board via USB first. The installer needs a browser with Web Serial
+support, such as Chrome, Edge or Brave. After flashing, connect to the
+<strong>NerdMinerAP</strong> Wi-Fi network to enter your Wi-Fi details and BTC
+address.
+</p>
+
+<p>
+<a href="../">Tested boards</a> &middot;
+<a href="https://github.com/HenrysCat/NerdMiner-Modded">GitHub</a>
+</p>
+
+<footer>
+NerdMiner Modded, a fork of
+<a href="https://github.com/BitMaker-hub/NerdMiner_v2">NerdMiner_v2</a>
+</footer>
+
+</div>
+
+<script type="module"
+src="https://unpkg.com/esp-web-tools@10/dist/web/install-button.js?module">
+</script>
+
+<script>
+// One entry per board: [build environment, name shown, chip]. The
+// environment name is also the manifest and firmware folder name
+// (manifest-<env>.json, firmware/<env>/...), written by make_untested.py.
+var BOARDS = [
+  ["M5Stick-C-Plus2", "M5StickC Plus2", "ESP32"],
+  ["M5Stick-CPlus", "M5StickC Plus", "ESP32"],
+  ["M5Stick-C", "M5StickC", "ESP32"],
+  ["ESP32-2432S024", "2.4\" CYD (ESP32-2432S024)", "ESP32"],
+  ["wt32-sc01", "WT32-SC01", "ESP32"],
+  ["LilygoT3V1", "LilyGO T3 v1", "ESP32"],
+  ["ESP32-D0WD-V3-weact", "WeAct ESP32-D0WD-V3", "ESP32"],
+  ["ESP32-devKitv1", "ESP32 DevKit v1", "ESP32"],
+  ["esp32cam", "ESP32-CAM", "ESP32"],
+  ["NerdminerV2", "LilyGO T-Display S3", "ESP32-S3"],
+  ["NerdminerV2-S3-AMOLED", "LilyGO T-Display S3 AMOLED", "ESP32-S3"],
+  ["NerdminerV2-S3-AMOLED-TOUCH", "LilyGO T-Display S3 AMOLED Touch", "ESP32-S3"],
+  ["NerdminerV2-S3-DONGLE", "LilyGO T-Dongle S3", "ESP32-S3"],
+  ["NerdminerV2-T-QT", "LilyGO T-QT Pro", "ESP32-S3"],
+  ["NerdminerV2-T-HMI", "LilyGO T-HMI", "ESP32-S3"],
+  ["Lilygo-T-Embed", "LilyGO T-Embed", "ESP32-S3"],
+  ["NerdminerV2-S3-GEEK", "Waveshare ESP32-S3-GEEK", "ESP32-S3"],
+  ["M5-Cardputer-Adv", "M5Stack Cardputer ADV", "ESP32-S3"],
+  ["M5-StampS3", "M5Stack StampS3", "ESP32-S3"],
+  ["wt32-sc01-plus", "WT32-SC01 Plus", "ESP32-S3"],
+  ["ESP32-S3-devKitv1", "ESP32-S3 DevKit", "ESP32-S3"],
+  ["esp32-s3-devkitc1-n32r8", "ESP32-S3 DevKitC-1 N32R8", "ESP32-S3"],
+  ["ESP32-S3-mini-wemos", "Wemos / Lolin S3 Mini", "ESP32-S3"],
+  ["ESP32-S3-mini-weact", "WeAct ESP32-S3 Mini", "ESP32-S3"],
+  ["ESP32-S3-042-OLED", "ESP32-S3 with 0.42\" OLED", "ESP32-S3"],
+  ["ESP32-S2-mini-wemos", "Wemos / Lolin S2 Mini", "ESP32-S2"],
+  ["ESP32-C3-super-mini", "ESP32-C3 Super Mini", "ESP32-C3"],
+  ["ESP32-C3-devKitmv1", "ESP32-C3 DevKitM-1", "ESP32-C3"],
+  ["ESP32-C3-042-OLED", "ESP32-C3 with 0.42\" OLED", "ESP32-C3"],
+];
+
+var select = document.getElementById("board");
+var groups = {};
+BOARDS.forEach(function (b) {
+  if (!groups[b[2]]) {
+    groups[b[2]] = document.createElement("optgroup");
+    groups[b[2]].label = b[2];
+    select.appendChild(groups[b[2]]);
+  }
+  var o = document.createElement("option");
+  o.value = b[0];
+  o.textContent = b[1];
+  groups[b[2]].appendChild(o);
+});
+
+// The install buttons read their manifest when clicked, so switching board
+// only has to point them at that board's manifests.
+function selectBoard(env) {
+  var name = "";
+  BOARDS.forEach(function (b) { if (b[0] === env) name = b[1]; });
+  document.getElementById("install-full").setAttribute("manifest", "manifest-" + env + ".json");
+  document.getElementById("install-update").setAttribute("manifest", "manifest-" + env + "-update.json");
+  var names = document.querySelectorAll(".board-name");
+  for (var i = 0; i < names.length; i++) {
+    names[i].textContent = name;
+  }
+}
+
+select.addEventListener("change", function () { selectBoard(this.value); });
+selectBoard(select.value); // also after the browser restores the last choice on reload
+</script>
+
+</body>
+</html>

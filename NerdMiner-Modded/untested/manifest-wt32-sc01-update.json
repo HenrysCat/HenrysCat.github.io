@@ -1,0 +1,16 @@
+{
+  "name": "NerdMiner Modded v1.6.0, WT32-SC01 (update, untested)",
+  "version": "1.6.0",
+  "new_install_prompt_erase": true,
+  "builds": [
+    {
+      "chipFamily": "ESP32",
+      "parts": [
+        {
+          "path": "firmware/wt32-sc01/firmware.bin",
+          "offset": 65536
+        }
+      ]
+    }
+  ]
+}

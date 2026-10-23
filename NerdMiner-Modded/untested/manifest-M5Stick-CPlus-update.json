@@ -1,0 +1,16 @@
+{
+  "name": "NerdMiner Modded v1.6.0, M5StickC Plus (update, untested)",
+  "version": "1.6.0",
+  "new_install_prompt_erase": true,
+  "builds": [
+    {
+      "chipFamily": "ESP32",
+      "parts": [
+        {
+          "path": "firmware/M5Stick-CPlus/firmware.bin",
+          "offset": 65536
+        }
+      ]
+    }
+  ]
+}

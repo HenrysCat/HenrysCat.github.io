@@ -1,0 +1,16 @@
+{
+  "name": "NerdMiner Modded v1.6.0, LilyGO T-HMI (update, untested)",
+  "version": "1.6.0",
+  "new_install_prompt_erase": true,
+  "builds": [
+    {
+      "chipFamily": "ESP32-S3",
+      "parts": [
+        {
+          "path": "firmware/NerdminerV2-T-HMI/firmware.bin",
+          "offset": 65536
+        }
+      ]
+    }
+  ]
+}

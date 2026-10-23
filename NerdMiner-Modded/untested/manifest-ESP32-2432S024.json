@@ -1,0 +1,16 @@
+{
+  "name": "NerdMiner Modded v1.6.0, 2.4\" CYD (ESP32-2432S024) (full install, untested)",
+  "version": "1.6.0",
+  "new_install_prompt_erase": true,
+  "builds": [
+    {
+      "chipFamily": "ESP32",
+      "parts": [
+        {
+          "path": "firmware/ESP32-2432S024/factory.bin",
+          "offset": 0
+        }
+      ]
+    }
+  ]
+}

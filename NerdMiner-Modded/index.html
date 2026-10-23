@@ -12,13 +12,14 @@
 <h1>NerdMiner Modded</h1>
 
 <p>
-Install NerdMiner Modded <strong>v1.5.1</strong> onto your CYD (Cheap Yellow
-Display) or a bare ESP32-WROOM-32 board.
+Install NerdMiner Modded <strong>v1.6.0</strong> onto your CYD (Cheap Yellow
+Display), LilyGO T-Display, ES3C35P or a bare ESP32-WROOM-32 board.
 </p>
 
 <p class="erase-note">
-<strong>Tested on these boards only.</strong> This firmware is built for the
-three boards below and has not been tested on any other board.
+<strong>Tested on these boards only.</strong> This firmware has been tested on
+the boards below. Builds for other boards, which compile but have not been
+tested on hardware, are on the <a href="untested/">untested boards page</a>.
 </p>
 
 <div class="card">
@@ -31,7 +32,15 @@ three boards below and has not been tested on any other board.
 <input type="radio" name="board" value="cyd28" checked>
 <span>
 <strong>2.8" CYD</strong>
-ESP32-2432S028R, 320x240 screen
+ESP32-2432S028R, one micro-USB port, 320x240 screen
+</span>
+</label>
+
+<label class="board">
+<input type="radio" name="board" value="cyd28usb2">
+<span>
+<strong>2.8" CYD, 2 USB</strong>
+ESP32-2432S028 with micro-USB and USB-C, 320x240 screen
 </span>
 </label>
 
@@ -40,6 +49,22 @@ ESP32-2432S028R, 320x240 screen
 <span>
 <strong>4.0" CYD</strong>
 320x480 ST7796 screen
+</span>
+</label>
+
+<label class="board">
+<input type="radio" name="board" value="tdisplay">
+<span>
+<strong>T-Display 1.14"</strong>
+LilyGO T-Display, 240x135 screen
+</span>
+</label>
+
+<label class="board">
+<input type="radio" name="board" value="es3c35p">
+<span>
+<strong>ES3C35P 3.5"</strong>
+ESP32-S3, 320x480 ST77922 touch screen (LCDWiki, also sold as Hosyond)
 </span>
 </label>
 
@@ -54,9 +79,11 @@ ESP32-WROOM-32 dev board
 </div>
 
 <p class="erase-note">
-All three boards use the same chip, so the installer cannot tell them apart:
-the wrong choice flashes fine but leaves a CYD's screen blank or scrambled. If
-that happens, pick the right board and do a full install again.
+The installer only checks the chip type. All of these boards except the
+ES3C35P use the same classic ESP32 chip, so it cannot tell them apart: the
+wrong choice flashes fine but leaves the screen blank, scrambled or in the
+wrong colours. If that happens, pick the right board and do a full install
+again.
 </p>
 
 </div>
@@ -120,6 +147,7 @@ address.
 </p>
 
 <p>
+<a href="untested/">Other boards (untested)</a> &middot;
 <a href="https://github.com/HenrysCat/NerdMiner-Modded">GitHub</a>
 </p>
 
@@ -137,7 +165,14 @@ src="https://unpkg.com/esp-web-tools@10/dist/web/install-button.js?module">
 <script>
 // The install buttons read their manifest when clicked, so switching board
 // only has to point them at that board's manifests.
-var BOARD_NAMES = { cyd28: '2.8" CYD', cyd40: '4.0" CYD', wroom: 'ESP32-WROOM-32 without a screen' };
+var BOARD_NAMES = {
+  cyd28: '2.8" CYD',
+  cyd28usb2: '2.8" CYD with two USB ports',
+  cyd40: '4.0" CYD',
+  tdisplay: 'LilyGO T-Display 1.14"',
+  es3c35p: 'ES3C35P 3.5" (ESP32-S3, 320x480)',
+  wroom: 'ESP32-WROOM-32 without a screen'
+};
 
 function selectBoard(board) {
   document.getElementById("install-full").setAttribute("manifest", "manifest-" + board + ".json");

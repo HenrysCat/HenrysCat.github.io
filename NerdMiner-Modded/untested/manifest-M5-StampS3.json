@@ -1,0 +1,16 @@
+{
+  "name": "NerdMiner Modded v1.6.0, M5Stack StampS3 (full install, untested)",
+  "version": "1.6.0",
+  "new_install_prompt_erase": true,
+  "builds": [
+    {
+      "chipFamily": "ESP32-S3",
+      "parts": [
+        {
+          "path": "firmware/M5-StampS3/factory.bin",
+          "offset": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "name": "NerdMiner Modded v1.6.0, 2.8\" CYD, 2 USB (update)",
+  "version": "1.6.0",
+  "new_install_prompt_erase": true,
+  "builds": [
+    {
+      "chipFamily": "ESP32",
+      "parts": [
+        {
+          "path": "firmware/cyd28usb2/firmware.bin",
+          "offset": 65536
+        }
+      ]
+    }
+  ]
+}

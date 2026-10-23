@@ -1,0 +1,16 @@
+{
+  "name": "NerdMiner Modded v1.6.0, ESP32-CAM (update, untested)",
+  "version": "1.6.0",
+  "new_install_prompt_erase": true,
+  "builds": [
+    {
+      "chipFamily": "ESP32",
+      "parts": [
+        {
+          "path": "firmware/esp32cam/firmware.bin",
+          "offset": 65536
+        }
+      ]
+    }
+  ]
+}
