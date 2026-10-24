@@ -35,7 +35,7 @@ select {
 <p>
 Firmware for <strong>other boards</strong>, built from the same NerdMiner
 Modded <strong>v<span class="version">1.6.0</span></strong> code as the tested
-builds.
+builds (M5StickC Plus2, original look: <strong>v1.6.1</strong>).
 </p>
 
 <div class="warning">
@@ -49,7 +49,7 @@ find</a>, good or bad.
 
 <p class="erase-note">
 For the 2.8" CYD (one USB port or two), the 4.0" CYD, the LilyGO T-Display
-1.14", the M5StickC Plus2, the ES3C35P (ESP32-S3, 3.5" 320x480) and the screenless ESP32-WROOM-32,
+1.14", the M5StickC Plus2 (Pulse theme), the ES3C35P (ESP32-S3, 3.5" 320x480) and the screenless ESP32-WROOM-32,
 use the <a href="../">tested builds</a> instead.
 </p>
 
@@ -146,6 +146,7 @@ src="https://unpkg.com/esp-web-tools@10/dist/web/install-button.js?module">
 // environment name is also the manifest and firmware folder name
 // (manifest-<env>.json, firmware/<env>/...), written by make_untested.py.
 var BOARDS = [
+  ["M5Stick-C-Plus2", "M5StickC Plus2, original look", "ESP32"],
   ["M5Stick-CPlus", "M5StickC Plus", "ESP32"],
   ["M5Stick-C", "M5StickC", "ESP32"],
   ["ESP32-2432S024", "2.4\" CYD (ESP32-2432S024)", "ESP32"],
