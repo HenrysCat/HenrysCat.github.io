@@ -1,6 +1,6 @@
 {
-  "name": "NerdMiner Modded v1.6.0, ESP32-S3 DevKitC-1 N32R8 (update, untested)",
-  "version": "1.6.0",
+  "name": "NerdMiner Modded v1.6.2, ESP32-S3 DevKitC-1 N32R8 (update, untested)",
+  "version": "1.6.2",
   "new_install_prompt_erase": true,
   "builds": [
     {

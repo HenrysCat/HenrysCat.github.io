@@ -1,6 +1,6 @@
 {
-  "name": "NerdMiner Modded v1.6.0, ESP32-C3 with 0.42\" OLED (full install, untested)",
-  "version": "1.6.0",
+  "name": "NerdMiner Modded v1.6.2, ESP32-C3 with 0.42\" OLED (full install, untested)",
+  "version": "1.6.2",
   "new_install_prompt_erase": true,
   "builds": [
     {

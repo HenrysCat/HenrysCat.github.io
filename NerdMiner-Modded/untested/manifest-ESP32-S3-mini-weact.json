@@ -1,6 +1,6 @@
 {
-  "name": "NerdMiner Modded v1.6.0, WeAct ESP32-S3 Mini (full install, untested)",
-  "version": "1.6.0",
+  "name": "NerdMiner Modded v1.6.2, WeAct ESP32-S3 Mini (full install, untested)",
+  "version": "1.6.2",
   "new_install_prompt_erase": true,
   "builds": [
     {
